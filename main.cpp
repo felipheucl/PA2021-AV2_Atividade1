@@ -3,27 +3,23 @@
 
 using namespace std;
 
-int compvet=0;
+int nt, compvet=0;
 char de, para;
 string msg, codmsg;
 
-int Ftroca(string fmsg, int fcompvet, char fde, char fpara, string fcodmsg){
+int Ftroca(string *pfmsg, int *pfcompvet, char fde, char fpara, string *pfcodmsg){
     int shift=0;
 
-    fcodmsg=fmsg;
-    fcompvet=fmsg.length();
-    for(int i=0; i<fcompvet; i++)
+    *pfcodmsg=*pfmsg;
+    *pfcompvet=(*pfmsg).length();
+    for(int i=0; i<*pfcompvet; i++)
     {
-        if (fcodmsg[i]==fde)
+        if ((*pfcodmsg)[i]==fde)
         {
-        fcodmsg[i]=fpara;
+        (*pfcodmsg)[i]=fpara;
         shift=shift+1;    
         }
-    
     }
-    cout<<endl<<"N.o Elementos do Vetor: "<<fcompvet<<endl;
-    cout<<fcodmsg<<endl;
-    cout<<fmsg<<endl;
     return shift;
 }
 
@@ -36,5 +32,12 @@ cout<<endl<<"Informe o caractere a ser retirado da mensagem: "<<endl;
 cin>>de;
 cout<<endl<<"Insira o caractere para a codificaçao: "<<endl;
 cin>>para;
-cout<<Ftroca(msg,compvet,de,para,codmsg)<<endl;
+
+nt=Ftroca(&msg,&compvet,de,para,&codmsg);
+
+cout<<endl<<codmsg<<endl;
+cout<<msg<<endl;
+cout<<nt<<endl<<endl;
+cout<<"Opcional: Qtd Elementos do vetor: "<<compvet<<endl<<endl;
+
 }
