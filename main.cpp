@@ -1,27 +1,40 @@
-/*
-1) Criar uma função que:
-a. Retorne um valor do tipo inteiro que corresponda ao número de trocas efetuadas pela
-função.
-b. Receba como parâmetros de entrada.
-i. Um ponteiro para um vetor de caracteres que contenha a mensagem.
-ii. Um inteiro que indique o número de elementos do vetor (este parâmetro é
-opcional, você poderá colocá-lo ou não).
-iii. Um caractere a ser substituído.
-iv. Um caractere a ser colocado no lugar do anterior.
-v. Um ponteiro para um vetor de caracteres que deverá conter a nova mensagem.
-
-2) A função main do seu programa, deverá ser capaz de pedir ao usuário que digite uma
-mensagem, um caractere a ser substituído e o caractere pelo qual deve ser substituído. Ao
-final do processamento, as duas mensagens devem ser impressas no console e o número de
-trocas efetuadas.
-*/
-
 #include <iostream>
-#include <fstream>
 #include <string.h>
+
 using namespace std;
 
+int compvet=0;
+char de, para;
+string msg, codmsg;
 
-int main (){
+int Ftroca(string fmsg, int fcompvet, char fde, char fpara, string fcodmsg){
+    int shift=0;
 
+    fcodmsg=fmsg;
+    fcompvet=fmsg.length();
+    for(int i=0; i<fcompvet; i++)
+    {
+        if (fcodmsg[i]==fde)
+        {
+        fcodmsg[i]=fpara;
+        shift=shift+1;    
+        }
+    
+    }
+    cout<<endl<<"N.o Elementos do Vetor: "<<fcompvet<<endl;
+    cout<<fcodmsg<<endl;
+    cout<<fmsg<<endl;
+    return shift;
+}
+
+int main() {
+
+cout<<endl<<endl<<"ATIVIDADE 1 - Problema de troca em um vetor de caracteres"<<endl<<endl;
+cout<<"Digite uma mensagem: "<<endl;
+getline(cin,msg);
+cout<<endl<<"Informe o caractere a ser retirado da mensagem: "<<endl;
+cin>>de;
+cout<<endl<<"Insira o caractere para a codificaçao: "<<endl;
+cin>>para;
+cout<<Ftroca(msg,compvet,de,para,codmsg)<<endl;
 }
